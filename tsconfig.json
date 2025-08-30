@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "es6",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "lib": ["ES2015"]
+  }
+}
