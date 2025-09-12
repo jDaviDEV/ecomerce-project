@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express'
-
+import { User } from '../interfaces/userInterface'
+import * as userServices from '../controllers/userServices.ts'
 const usersRouter: Router = Router()
 
 usersRouter.get('/users/profile/:userId', (req: Request, res: Response) => {
@@ -26,7 +27,13 @@ usersRouter.get('/users/notifications/:userId', (req: Request, res: Response) =>
     }
   )
 })
-usersRouter.post('/users', (_req: Request, _res: Response) => {})
+
+usersRouter.post('/users', (req: Request, res: Response) => {
+  const newUser: User = req.body
+  userServices.registerNewUser(newUser)
+  res.status(201).send(`the user ${newUser.username} have been registered`)
+})
+
 usersRouter.patch('/users/:userId', (_req: Request, _res: Response) => {})
 usersRouter.delete('/users/profile/:userId', (_req: Request, _res: Response) => {})
 
