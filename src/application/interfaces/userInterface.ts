@@ -6,3 +6,5 @@ export interface User {
   phone: string
   address: string
 }
+
+export type newUserInfo = Partial<User>
