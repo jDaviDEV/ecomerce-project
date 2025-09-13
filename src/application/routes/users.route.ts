@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express'
-import { newUserInfo, User } from '../interfaces/userInterface'
+import { updatedUserInfo, User } from '../interfaces/userInterface'
 import * as userServices from '../controllers/userServices.ts'
 
 const usersRouter: Router = Router()
@@ -37,10 +37,11 @@ usersRouter.post('/users', (req: Request, res: Response) => {
 })
 
 usersRouter.patch('/users/:userId', (req: Request, res: Response) => {
-  const newUserInfo: newUserInfo = req.body
-  userServices.updateUserInfo(newUserInfo)
-  res.status(200).send(`The user information has been updated:\n ${JSON.stringify(newUserInfo)}`)
+  const updatedUserInfo: updatedUserInfo = req.body
+  userServices.updateUserInfo(updatedUserInfo)
+  res.status(200).send(`The user information has been updated:\n ${JSON.stringify(updatedUserInfo)}`)
 })
+
 usersRouter.delete('/users/profile/:userId', (_req: Request, _res: Response) => {})
 
 export default usersRouter
