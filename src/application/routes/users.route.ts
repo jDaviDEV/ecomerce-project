@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express'
-import { updatedUserInfo, User } from '../interfaces/userInterface'
-import * as userServices from '../controllers/userServices.ts'
+import { updatedUserInfo, User } from '../../domain/interfaces/userInterface.ts'
+import * as userServices from '../../domain/services/userServices.ts'
 
 const usersRouter: Router = Router()
 

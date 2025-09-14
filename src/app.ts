@@ -1,5 +1,6 @@
 import express, { Application } from 'express'
 import mainRouter from './application/routes/main.route.ts'
+import { dbConnection } from './infrasctructure/config/mongoDB.ts'
 
 const app: Application = express()
 const PORT: number = 3000
@@ -7,6 +8,14 @@ const PORT: number = 3000
 app.use(express.json())
 app.use(mainRouter)
 
-app.listen(PORT, () => {
-  console.log(`Running on port ${PORT}`)
-})
+async function main (): Promise<void> {
+  // Assuring to stablish the connection to the database before running the server
+  await dbConnection()
+
+  app.listen(PORT, () => {
+    console.log(`Running on port ${PORT}`)
+  })
+}
+
+// Ignore the error handling since it's already handled inside dbConnection()
+void main()

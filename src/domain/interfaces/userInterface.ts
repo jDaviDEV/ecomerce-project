@@ -7,4 +7,5 @@ export interface User {
   address: string
 }
 
+// an object that contains the new information of the user
 export type updatedUserInfo = Partial<User>
