@@ -5,8 +5,8 @@ const DB_NAME = 'e_commerce'
 
 export async function dbConnection (): Promise<void> {
   try {
-    await mongoose.connect(`${MONGOATLAS_URL}/${DB_NAME}`)
-    console.log('[DB-STATUS] MongoDB is online')
+    await mongoose.connect(MONGOATLAS_URL, { dbName: DB_NAME })
+    console.log(`[DB-STATUS] MongoDB is online, dbName=${mongoose.connection.name}`)
   } catch (error) {
     console.log(error)
     throw new Error('[DB-ERROR] It\'s not possible to connect')

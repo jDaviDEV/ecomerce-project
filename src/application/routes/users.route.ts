@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express'
-import { updatedUserInfo, User } from '../../domain/interfaces/userInterface.ts'
+import { updatedUserInfo, IUser } from '../../domain/interfaces/userInterface.ts'
 import * as userServices from '../../domain/services/userServices.ts'
 
 const usersRouter: Router = Router()
@@ -30,9 +30,15 @@ usersRouter.get('/users/notifications/:userId', (req: Request, res: Response) =>
   )
 })
 
+// this route must be async in order to wait that the function getAllUsers() returns the data
+usersRouter.get('/users', async (_req: Request, res: Response) => {
+  const data = await userServices.getAllUsers()
+  res.status(200).send(data)
+})
+
 usersRouter.post('/users', (req: Request, res: Response) => {
-  const newUser: User = req.body
-  userServices.registerNewUser(newUser)
+  const newUser: IUser = req.body
+  void userServices.registerNewUser(newUser)
   res.status(201).send(`the user ${newUser.username} have been registered`)
 })
 

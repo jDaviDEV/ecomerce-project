@@ -1,4 +1,6 @@
-export interface User {
+import { Document } from 'mongoose'
+
+export interface IUser {
   userId: string
   username: string
   email: string
@@ -8,4 +10,6 @@ export interface User {
 }
 
 // an object that contains the new information of the user
-export type updatedUserInfo = Partial<User>
+// intended to be used as an object to get the info when trying tu update user information
+export type updatedUserInfo = Partial<IUser>
+export interface IUserDocument extends IUser, Document {}

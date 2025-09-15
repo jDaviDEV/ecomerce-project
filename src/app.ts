@@ -9,7 +9,7 @@ app.use(express.json())
 app.use(mainRouter)
 
 async function main (): Promise<void> {
-  // Assuring to stablish the connection to the database before running the server
+  // Assuring to stablish connection to the database before running the server
   await dbConnection()
 
   app.listen(PORT, () => {
