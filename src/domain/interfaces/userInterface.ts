@@ -11,5 +11,5 @@ export interface IUser {
 
 // an object that contains the new information of the user
 // intended to be used as an object to get the info when trying tu update user information
-export type updatedUserInfo = Partial<IUser>
+export type updatedUserInfo = Partial<Omit<IUser, 'userId'>>
 export interface IUserDocument extends IUser, Document {}

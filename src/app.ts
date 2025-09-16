@@ -17,5 +17,5 @@ async function main (): Promise<void> {
   })
 }
 
-// Ignore the error handling since it's already handled inside dbConnection()
+// Ignore error handling since it's already handled inside dbConnection()
 void main()
