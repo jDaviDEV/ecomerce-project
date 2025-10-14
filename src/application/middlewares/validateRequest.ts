@@ -5,12 +5,23 @@ export function validateRequest (req: Request, res: Response, next: NextFunction
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
     const formattedErrors = errors.array().map(err => {
-      try {
-        const parsed = JSON.parse(err.msg)
-        return parsed
-      } catch {
-        return { msg: err.msg, code: 400 }
+      const msg = err.msg
+
+      if (typeof msg === 'object' && msg !== null && 'msg' in msg && 'code' in msg) {
+        // Case: .withMessage({ msg, code })
+        return msg
       }
+
+      if (typeof msg === 'string') {
+        try {
+          // Case: throw new Error(JSON.stringify(...))
+          return JSON.parse(msg)
+        } catch {
+          return { msg, code: 400 }
+        }
+      }
+
+      return { msg: 'Unknown error', code: 400 }
     })
 
     let statusCode: number = formattedErrors[0]?.code
