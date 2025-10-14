@@ -1,5 +1,5 @@
 import { param, body } from 'express-validator'
-import { isUserIdRegister, isUserIdInNotifications } from '../../domain/services/userServices'
+import { isUserIdRegister, isUserIdInNotifications } from '../../../domain/services/userServices'
 
 export const userExistenceAsParamsRules = [
   param('userId').trim().notEmpty().withMessage({ msg: 'userId is required', code: 422 }).bail().custom(async (userId: string) => {

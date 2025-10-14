@@ -1,5 +1,5 @@
 import { body } from 'express-validator'
-import { isUserIdInNotifications } from '../../domain/services/userServices'
+import { isUserIdInNotifications } from '../../../domain/services/userServices'
 
 export const userNotificationUpdateRules = [
   body('userId').trim().notEmpty().withMessage({ msg: 'userId is required', code: 422 }).bail().custom(async (userId: string) => {

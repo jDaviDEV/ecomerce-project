@@ -1,5 +1,5 @@
 import { param } from 'express-validator'
-import { isUserNotificationIdExistent } from '../../domain/services/userServices'
+import { isUserNotificationIdExistent } from '../../../domain/services/userServices'
 
 export const userNotificationIdExistenceAsParamsRules = [
   param('notificationId').optional().trim().notEmpty().withMessage({ msg: 'notificationId is empty', code: 422 }),
