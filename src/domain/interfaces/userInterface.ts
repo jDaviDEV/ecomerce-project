@@ -8,6 +8,16 @@ export interface IUser {
   phone: string
   address: string
 }
+export interface INotification {
+  notificationId: string
+  title: string
+  message: string
+  createdAt: Date
+}
+export interface IUserNotification {
+  userId: string
+  notifications: INotification[]
+}
 
 // an object that contains the new information of the user
 // intended to be used as an object to get the info when trying tu update user information
