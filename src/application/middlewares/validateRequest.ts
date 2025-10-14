@@ -24,11 +24,16 @@ export function validateRequest (req: Request, res: Response, next: NextFunction
       return { msg: 'Unknown error', code: 400 }
     })
 
-    let statusCode: number = formattedErrors[0]?.code
+    const uniqueErrors = formattedErrors.filter(
+      (error, index, self) =>
+        index === self.findIndex(e => e.msg === error.msg && e.code === error.code)
+    )
+
+    let statusCode: number = uniqueErrors[0]?.code
     if (statusCode === undefined) {
       statusCode = 400
     }
-    return res.status(statusCode).json({ errors: formattedErrors })
+    return res.status(statusCode).json({ errors: uniqueErrors })
   }
   next()
 }
