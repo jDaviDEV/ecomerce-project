@@ -1,5 +1,5 @@
 import { model } from 'mongoose'
-import { IShiptment } from '../interfaces/shipmentInterface'
+import { IShipment } from '../interfaces/shipmentInterface'
 import { shipmentSchema } from '../schemas/shipmentSchemas'
 
-export const ShipmentModel = model<IShiptment>('Shipment', shipmentSchema)
+export const ShipmentModel = model<IShipment>('Shipment', shipmentSchema)

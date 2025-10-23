@@ -21,3 +21,4 @@ export interface IShipment {
 }
 
 export type NewShipmentInfo = Omit<IShipment, 'status' | 'deliveredAt'>
+export type updatedShipmentInfo = Partial<Omit<IShipment, 'shipmentId'>>
