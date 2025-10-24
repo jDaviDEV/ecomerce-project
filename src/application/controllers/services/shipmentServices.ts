@@ -1,5 +1,5 @@
-import { IShipment, NewShipmentInfo, updatedShipmentInfo } from '../interfaces/shipmentInterface'
-import { ShipmentModel } from '../models/dbShipmentModels'
+import { IShipment, NewShipmentInfo, updatedShipmentInfo } from '../../../domain/interfaces/shipmentInterface'
+import { ShipmentModel } from '../../../domain/models/dbShipmentModels'
 
 export async function registerNewShipment (newShipmentInfo: NewShipmentInfo): Promise<undefined> {
   try {

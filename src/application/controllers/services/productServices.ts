@@ -1,9 +1,9 @@
-import { ICategory } from '../interfaces/categoryInterface'
-import { IInventory, updatedInventoryInfo } from '../interfaces/inventoryInterface'
-import { IProduct, updatedProductInfo } from '../interfaces/productInterface'
-import { categoryModel } from '../models/dbCategoryModels'
-import { InventoryModel } from '../models/dbInventoryModels'
-import { ProductModel } from '../models/dbProductModels'
+import { ICategory } from '../../../domain/interfaces/categoryInterface'
+import { IInventory, updatedInventoryInfo } from '../../../domain/interfaces/inventoryInterface'
+import { IProduct, updatedProductInfo } from '../../../domain/interfaces/productInterface'
+import { categoryModel } from '../../../domain/models/dbCategoryModels'
+import { InventoryModel } from '../../../domain/models/dbInventoryModels'
+import { ProductModel } from '../../../domain/models/dbProductModels'
 
 export async function addNewCategory (newCategoryInfo: ICategory): Promise<undefined> {
   try {

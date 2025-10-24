@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express'
 import { updatedUserInfo, IUser, IUserNotification } from '../../domain/interfaces/userInterface.ts'
-import * as userServices from '../../domain/services/userServices.ts'
+import * as userServices from '../controllers/services/userServices.ts'
 import { registerUserRules } from '../middlewares/userValidations/validateUserRegistration.ts'
 import { updateUserRules } from '../middlewares/userValidations/validateUserUpdate.ts'
 import { userExistenceAsParamsRules, userExistenceAsBodyRules, userIdInNotificationsExistenceAsParamsRules } from '../middlewares/userValidations/validateUserExistence.ts'

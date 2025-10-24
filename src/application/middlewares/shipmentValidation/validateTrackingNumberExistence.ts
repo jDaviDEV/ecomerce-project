@@ -1,5 +1,5 @@
 import { param } from 'express-validator'
-import { isShipmentTrackingNumberExistent } from '../../../domain/services/shipmentServices'
+import { isShipmentTrackingNumberExistent } from '../../controllers/services/shipmentServices'
 
 export const trackingNumberExistenceAsParams = [
   param('trackingNumber').trim().notEmpty().withMessage({ msg: 'trackingNumber is required', code: 422 }).isString().withMessage('Tracking Number must be a string').custom(async (trackingNumber: string) => {

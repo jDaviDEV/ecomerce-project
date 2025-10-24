@@ -1,5 +1,5 @@
 import { body } from 'express-validator'
-import { isShipmentTrackingNumberExistent } from '../../../domain/services/shipmentServices'
+import { isShipmentTrackingNumberExistent } from '../../controllers/services/shipmentServices'
 
 export const updatedShipmentRules = [
   body('userId').optional().trim().notEmpty().withMessage({ msg: 'userId should not be empty', code: 422 }),

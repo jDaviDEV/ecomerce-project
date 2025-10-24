@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express'
-import * as productServices from '../../domain/services/productServices.ts'
+import * as productServices from '../controllers/services/productServices.ts'
 import { ICategory } from '../../domain/interfaces/categoryInterface.ts'
 import { IProduct, updatedProductInfo } from '../../domain/interfaces/productInterface.ts'
 import { IInventory, updatedInventoryInfo } from '../../domain/interfaces/inventoryInterface.ts'

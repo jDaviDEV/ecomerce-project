@@ -1,5 +1,5 @@
-import { updatedUserInfo, IUser, IUserNotification } from '../interfaces/userInterface'
-import { UserModel, UserNotificationModel } from '../models/dbUserModels'
+import { updatedUserInfo, IUser, IUserNotification } from '../../../domain/interfaces/userInterface'
+import { UserModel, UserNotificationModel } from '../../../domain/models/dbUserModels'
 
 export async function registerNewUser (newUserInfo: IUser): Promise<undefined> {
   try {

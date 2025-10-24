@@ -1,5 +1,5 @@
 import { body } from 'express-validator'
-import { isShipmentIdExistent, isShipmentTrackingNumberExistent } from '../../../domain/services/shipmentServices'
+import { isShipmentIdExistent, isShipmentTrackingNumberExistent } from '../../controllers/services/shipmentServices'
 
 export const newShipmentRules = [
   body('userId').trim().notEmpty().withMessage({ msg: 'userId is required', code: 422 }),

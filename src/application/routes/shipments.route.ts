@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express'
-import * as shipmentServices from '../../domain/services/shipmentServices.ts'
+import * as shipmentServices from '../controllers/services/shipmentServices.ts'
 import { IShipment, NewShipmentInfo, updatedShipmentInfo } from '../../domain/interfaces/shipmentInterface'
 import { validateRequest } from '../middlewares/validateRequest.ts'
 import { newShipmentRules } from '../middlewares/shipmentValidation/validateNewShipment.ts'
